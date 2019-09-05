@@ -1,3 +1,5 @@
+import * as THREE from "./three/three.module.js";
+
 function ThreeScene( canvas, obj ) {
 
   // Create scene and renderer

@@ -1,4 +1,5 @@
-//
+import { OBJLoader } from "./three/OBJLoader.js";
+
 let root = document.getElementById("root");
 root.style.width = window.innerWidth;
 root.style.height = window.innerHeight;
