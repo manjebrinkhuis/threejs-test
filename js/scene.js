@@ -1,4 +1,4 @@
-import * as THREE from "./three/three.module.js";
+// import * as THREE from "./three/three.module.js";
 
 function ThreeScene( canvas, obj ) {
 
@@ -22,8 +22,7 @@ function ThreeScene( canvas, obj ) {
   updateCamera();
 
   // Mouse position to move camera
-  let mousePosition = undefined;
-  let _prevMousePostition = undefined;
+  let mousePosition, _prevMousePostition, _startMousePostition;
 
   function addObject( obj ) {
     objects.push( obj );
@@ -47,7 +46,7 @@ function ThreeScene( canvas, obj ) {
     light.target.postition = origin;
   }
 
-  function updateCamera({fov=50, near=1, far=5000, depth=50} = {}) {
+  function updateCamera({fov=150, near=1, far=5000, depth=150} = {}) {
     // Camera
     camera.fov     = fov;
     camera.aspect  = canvas.offsetWidth / canvas.offsetHeight;
@@ -86,7 +85,6 @@ function ThreeScene( canvas, obj ) {
   }
 
   function onMouseMove(p) {
-    //
     mousePosition = { x: p.screenX, y: p.screenY };
   }
 

@@ -1,9 +1,11 @@
-import { OBJLoader } from "./three/OBJLoader.js";
+// import * as THREE from "./three/three.module.js";
+// import { OBJLoader } from "./three/OBJLoader.js";
 
 let root = document.getElementById("root");
-root.style.width = window.innerWidth;
-root.style.height = window.innerHeight;
+root.style.width = window.innerWidth+"px";
+root.style.height = window.innerHeight+"px";
 
+console.log(root.style.width)
 //
 let canvas = document.createElement("canvas");
 canvas.setAttribute("width", root.clientWidth);
@@ -15,7 +17,7 @@ let scene = new ThreeScene(canvas);
 
 // obj
 let manager = new THREE.LoadingManager();
-let loader = new THREE.ObjectLoader( manager );
+let loader = new OBJLoader( manager );
 
 // let cube = new Cube({color: "#567"});
 let url =  "https://raw.githubusercontent.com/manjebrinkhuis/threejs-test/master/assets/brain.obj";
@@ -31,13 +33,12 @@ loader.load( url, ( object ) => {
 window.onmousemove = scene.onMouseMove;
 
 function render() {
-  // scene.updateCameraXY({ strengthX : .02, strengthY: .01 });
-  // scene.rotateObjects({x:.001, y:.001});
-  // scene.render();
-  // console.log("running...")
-  // window.requestAnimationFrame(render);
+  scene.updateCameraXY({ strengthX : .1, strengthY: .1 });
+  scene.rotateObjects({x:.01, y:.01});
+  scene.render();
+  window.requestAnimationFrame(render);
 }
 
-// render();
+render();
 
 // root.innerHTML = "hi";
