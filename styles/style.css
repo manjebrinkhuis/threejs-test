@@ -7,3 +7,9 @@ html, body {
 body {
   background-image: linear-gradient(#ff00ff, #00ffaa);
 }
+
+#top-layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
